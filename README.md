@@ -25,8 +25,8 @@ pip install imutils
 
 Склонируйте репозиторий с приложением на свой компьютер:
 ```bash
-git clone https://github.com/SINikiforov/face_blurring.git
-cd face_blurring
+git clone https://github.com/SINikiforov/face-blurring-opencv.git
+cd face-blurring-opencv
 ```
 
 ## Запуск
