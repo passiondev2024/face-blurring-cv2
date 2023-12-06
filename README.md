@@ -18,7 +18,7 @@ Face Blurring - это простое приложение для размыти
 Вы можете установить их с помощью pip:
 
 ```bash
-pip install opencv-python-headless
+pip install opencv-python
 pip install numpy
 pip install imutils
 ```
