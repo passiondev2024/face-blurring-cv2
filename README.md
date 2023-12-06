@@ -1,4 +1,4 @@
-![прямоугольник](https://github.com/SINikiforov/face-blurring-opencv/assets/117852442/6bafa580-d304-469d-a720-d43e1808c012)# Face Blurring
+# Face Blurring
 
 Face Blurring - это простое приложение для размытия лиц на видеозаписи с использованием OpenCV и библиотеки Tkinter для графического интерфейса.
 
