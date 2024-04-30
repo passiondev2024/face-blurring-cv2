@@ -4,6 +4,7 @@ import threading
 import cv2
 import imutils
 import numpy as np
+from PIL import Image, ImageTk
 
 from pyimagesearch.face_blurring import anonymize_face_pixelate, anonymize_face_simple
 
@@ -24,6 +25,13 @@ class FaceBlurringApp:
         self.create_widgets()
 
     def create_widgets(self):
+        image = Image.open("Face-Detection-1.png")  # use your own image file path
+        image = image.resize((self.root.winfo_screenwidth(), self.root.winfo_screenheight()), Image.BICUBIC)  # resize image
+        background_image = ImageTk.PhotoImage(image)
+        background_label = tk.Label(self.root, image=background_image)
+        background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        background_label.image = background_image
+
         options_frame = tk.Frame(self.root)
         options_frame.pack(pady=10)
 
@@ -42,13 +50,17 @@ class FaceBlurringApp:
         self.input_confidence_entry = tk.Entry(options_frame, textvariable=self.input_confidence)
         self.input_confidence_entry.grid(row=2, column=1)
 
-        start_button = tk.Button(self.root, text="Start", command=self.start_blurring).pack()
+        start_button = tk.Button(self.root, text="Start", command=self.start_blurring,
+                                 font=('arial', 20, 'bold'), bd=3, bg='green', fg='white')
+        start_button.pack(pady=10)
 
-        stop_button = tk.Button(self.root, text="Stop", command=self.stop_blurring).pack()
+        stop_button = tk.Button(self.root, text="Stop", command=self.stop_blurring,
+                                font=('arial', 20, 'bold'), bd=3, bg='red', fg='white')
+        stop_button.pack(pady=10)
 
-        self.canvas = tk.Canvas(self.root, width=640, height=480)
+        self.canvas = tk.Canvas(self.root, width=640, height=480, highlightthickness=1,
+                                highlightbackground="black", bg='white')
         self.canvas.pack()
-
     def start_blurring(self):
         if not self.running:
             self.input_blocks_entry.config(state="disabled")
